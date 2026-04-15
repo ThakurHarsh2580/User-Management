@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Trispace:wdth,wght@87.5,100..800&display=swap');
+@import "tailwindcss";
+
+@layer base{
+    body {
+        font-family: 'Trispace', sans-serif;
+    }
+}
+
+@layer components{
+
+    .dark{
+        @apply bg-black text-white;
+    }
+    .light{
+        @apply bg-white text-black;
+    }
+
+    .light .text-gray-200,
+    .light .text-gray-100 {
+        color: var(--color-black) !important;
+    }
+    .light .text-gray-400 {
+        color: #4b5563 !important;
+    }
+    .dark #form-card {
+        @apply bg-gray-900/80 border border-gray-700 text-white;
+    }
+    .dark input,
+    .dark textarea {
+        @apply bg-gray-800 border border-gray-700 text-white;
+    }
+    .dark input::placeholder,
+    .dark textarea::placeholder {
+        @apply text-gray-400;
+    }
+
+    .light #form-card {
+        @apply bg-slate-100 border border-slate-300 text-black;
+    }
+    .light .card-style {
+        @apply bg-slate-100 text-black;
+    }
+    .light .card-style h1,
+    .light .card-style h2 {
+        @apply text-black;
+    }
+    .light input,
+    .light textarea,
+    .light #search {
+        @apply bg-white border border-gray-300 text-black;
+    }
+    .light input::placeholder,
+    .light textarea::placeholder,
+    .light #search::placeholder {
+        @apply text-slate-500;
+    }
+
+    .card-style{
+        @apply flex flex-col gap-3 p-4
+        w-56 bg-gray-800/20 rounded-lg
+        shadow-lg hover:shadow-xl 
+        transition duration-300 
+        hover:-translate-y-1 text-gray-200;
+    }
+
+    .card-style h1{
+        @apply text-lg font-semibold;
+    }
+
+    .card-style h2{
+        @apply text-sm text-gray-400;
+    }
+
+    .pic-wrapper{
+        @apply w-20 h-20 rounded-full overflow-hidden 
+        ring-2 ring-gray-800;
+    }
+
+    .info{
+        @apply flex flex-col gap-1;
+    }
+
+    .pic-styles{
+        @apply w-full h-full object-cover;
+    }
+
+    .toaster-notification{
+        @apply rounded p-1;
+    }
+
+    .toast-fade {
+        @apply transition-all duration-500 opacity-0 -translate-y-5;
+    }
+
+    .btn{
+        @apply mt-2 w-full bg-blue-600 
+        text-white text-sm font-medium 
+        py-2 rounded-lg 
+        hover:bg-blue-500 active:scale-95
+        transition duration-200 cursor-pointer;
+    }
+
+    .delete-btn{
+        @apply mt-2 w-full bg-red-600 
+        text-white text-sm font-medium 
+        py-2 rounded-lg 
+        hover:bg-red-500 active:scale-95
+        transition duration-200 cursor-pointer;
+    }
+
+    .curr-editing-card{
+        @apply shadow-2xl shadow-blue-500 scale-105;
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="output.css">
+    
+</head>
+<body class="dark relative flex flex-col items-center pb-10 overflow-x-hidden">
+
+    <header id="navbar" class="bg-blue-400/20 text-gray-200 font-bold backdrop-blur-2xl w-full fixed z-20">
+        <div id="nav-container" class="flex w-full items-center justify-between px-6 py-3 lg:px-12 lg:py-4">
+            <div id="nav-menu" class="w-[40%]">
+                <div id="img-box" class="md:hidden">
+                    <img id="menu-img" onclick="menuToggle()" class="size-8 hover:scale-105 cursor-pointer transition" src=".//graphics/menu-svgrepo-com (1).svg" alt="">
+                </div>
+                <ul id="nav-functions" class="md:flex justify-between hidden *:hover:text-blue-500 *:cursor-pointer">
+                    <li>Dashboard</li>
+                    <li>All Users</li>
+                    <li>Profile</li>
+                    <li>Settings</li>
+                </ul>
+            </div>
+            
+            <span id="right-container" class="flex gap-2 items-center">
+                <div id="theme-btn" onclick="themeToggle()" class="bg-white/10 rounded p-1 cursor-pointer">
+                    <img id="theme-img" class="size-10" src="./graphics/sun.png" alt="">
+                </div>
+                <input id="search" value="" class="p-3 rounded-lg bg-gray-800 border border-gray-700 
+                focus:ring-2 focus:ring-blue-500 outline-none transition" type="text" placeholder="Search User">
+            </span>
+        </div>
+
+        <div id="menu-box" class="md:hidden hidden inset-0 h-[80%] p-20 transition-all">
+            <ul id="nav-functions" class="flex flex-col justify-between *:hover:text-blue-500 gap-8 *:cursor-pointer *:bg-blue-400/10 *:p-3 *:rounded">
+                    <li>Dashboard</li>
+                    <li>All Users</li>
+                    <li>Profile</li>
+                    <li>Settings</li>
+                </ul>
+        </div>
+    </header>
+
+    <div id="toaster-box" class="fixed top-20 space-x-2 z-20 w-35">
+    </div>
+
+    <div id="form-card" class="flex flex-col mb-20 mt-30 items-center bg-gray-900/80 backdrop-blur-md border border-gray-700 px-8 py-6 rounded-2xl shadow-lg w-80 sm:w-100 lg:w-120">
+
+        <h2 class="text-xl font-semibold mb-4 text-gray-100">Add New User</h2>
+
+        <form id="form" class="flex flex-col w-full gap-4">
+
+            <div class="flex flex-col">
+                <input id="username" required type="text" 
+                placeholder="Enter Name" class="p-2 rounded-lg bg-gray-800 border border-gray-700 
+                focus:ring-2 focus:ring-blue-500 focus:border-none 
+                outline-none transition">
+
+                <p id="username-error" class="text-[12px] text-red-500 hidden">*Must be at least 3 characters and only Characters."</p>
+            </div>
+
+            <div class="flex flex-col">
+                <input id="role" required type="text" 
+                placeholder="Enter Role" class="p-2 rounded-lg bg-gray-800 border border-gray-700 
+                focus:ring-2 focus:ring-blue-500 outline-none transition">
+
+                <p id="role-error" class="text-[12px] text-red-500 hidden">*Must be at least 3 characters.</p>
+            </div>
+            
+            <div class="flex flex-col">
+                <input id="photo-link" required type="text"
+                placeholder="Enter Profile Link" class="p-2 rounded-lg bg-gray-800 border border-gray-700 
+                focus:ring-2 focus:ring-blue-500 outline-none transition">
+
+                <p id="link-error" class="text-[12px] text-red-500 hidden">Enter Valid Photo Link.</p>
+            </div>
+
+            <div class="flex flex-col">
+                <textarea id="bio" required placeholder="Enter Bio" rows="3"
+                class="p-2 rounded-lg bg-gray-800 border border-gray-700 
+                focus:ring-2 focus:ring-blue-500 outline-none resize-none transition"></textarea>
+            </div>
+            
+            <button type="submit" id="submit-btn" class="btn mt-2 text-lg py-2 rounded-lg hover:bg-blue-500 active:scale-95">
+                Add User
+            </button>
+            <button type="button" id="cancel-btn" class="btn hidden mt-2 text-lg py-2 rounded-lg bg-red-600 hover:bg-red-500 active:scale-95">
+                Cancel
+            </button>
+
+        </form>
+    </div>
+    <hr class="w-full">
+    
+    <div id="card-box" class="container w-screen m-10">
+        <div id="card-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4 w-[80%] m-auto *:border *:border-gray-700 place-items-center">
+            <!--Cards will be added Here, Dynamically!!-->
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
