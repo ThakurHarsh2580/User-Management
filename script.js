@@ -12,20 +12,26 @@ const cardBox = document.querySelector("#card-box");
 const searchInput = document.querySelector("#search");
 const submitBtn = document.querySelector("#submit-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
-const themeimg = document.querySelector("#theme-img");
+const themeimg = document.querySelectorAll("#theme-img");
 
 // Toggle Theme-->
-function themeToggle(){
-    if(document.body.classList.contains("dark")){
-        document.body.classList.add("light");
-        document.body.classList.remove("dark");
-        themeimg.src = "./graphics/moon.png";
-    }
-    else if(document.body.classList.contains("light")){
+function themeToggle() {
+    // Select all images with the class 'theme-img'
+    let newSrc = "";
+
+    if (document.body.classList.contains("dark")) {
+        document.body.classList.replace("dark", "light");
+        newSrc = "./graphics/moon.png";
+    } else {
         document.body.classList.add("dark");
         document.body.classList.remove("light");
-        themeimg.src = "./graphics/sun.png";
+        newSrc = "./graphics/sun.png";
     }
+
+    // Update every image found
+    themeimg.forEach(img => {
+        img.src = newSrc;
+    });
 }
 
 // Menu Toggle-->
@@ -280,10 +286,10 @@ const userManager = {
             picWrapper.classList.add("pic-wrapper");
             let pic = document.createElement("img");
             pic.classList.add("pic-styles")
-            pic.src = user.picLink || "../graphics/user.jpeg";
+            pic.src = user.picLink || "./graphics/user.jpeg";
             // Image fallback
             pic.onerror = () => {
-                pic.src = "../graphics/user.jpeg";
+                pic.src = "./graphics/user.jpeg";
             };
             picWrapper.append(pic);
         
