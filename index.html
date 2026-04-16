@@ -24,8 +24,8 @@
             </div>
             
             <span id="right-container" class="flex gap-2 items-center">
-                <div id="theme-btn" onclick="themeToggle()" class="bg-white/10 rounded p-1 cursor-pointer">
-                    <img id="theme-img" class="size-10" src="./graphics/sun.png" alt="">
+                <div id="theme-btn" onclick="themeToggle()" class="hidden md:flex bg-white/10 rounded p-1 cursor-pointer">
+                    <img id="theme-img" class="size-10 shrink-0" src="./graphics/sun.png" alt="">
                 </div>
                 <input id="search" value="" class="p-3 rounded-lg bg-gray-800 border border-gray-700 
                 focus:ring-2 focus:ring-blue-500 outline-none transition" type="text" placeholder="Search User">
@@ -38,6 +38,9 @@
                     <li>All Users</li>
                     <li>Profile</li>
                     <li>Settings</li>
+                    <div id="theme-btn" onclick="themeToggle()" class="bg-white/10 rounded p-1 cursor-pointer">
+                        <img id="theme-img" class="size-10 shrink-0" src="./graphics/sun.png" alt="">
+                    </div>
                 </ul>
         </div>
     </header>
